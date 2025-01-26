@@ -5,11 +5,9 @@ export function HeroSection() {
   return (
     <section className="px-8 py-14 grid grid-cols-1 md:grid-cols-2 items-center">
       <div className="max-md:items-center flex flex-col">
-        <div>
-          <p className="font-bold mb-2">Branding | Logos | Graphic Design</p>
-          <h1 className="text-6xl md:text-6xl font-bold mb-4">
-            Visual Designer
-          </h1>
+        <div className="max-md:text-center">
+          <p className="font-bold mb-2 ">Branding | Logos | Graphic Design</p>
+          <h1 className="text-6xl font-bold mb-4">Visual Designer</h1>
         </div>
 
         <div className="hidden md:block">
