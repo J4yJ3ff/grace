@@ -7,7 +7,9 @@ export function HeroSection() {
       <div className="max-md:items-center flex flex-col">
         <div className="max-md:text-center">
           <p className="font-bold mb-2 ">Branding | Logos | Graphic Design</p>
-          <h1 className="text-6xl font-bold mb-4">Visual Designer</h1>
+          <h1 className="text-6xl md:text-6xl text-[8vw] font-bold mb-4">
+            Visual Designer
+          </h1>
         </div>
 
         <div className="hidden md:block">
