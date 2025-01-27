@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Epilogue } from "next/font/google";
 import "./globals.css";
 import NextTopLoader from "nextjs-toploader";
+import Watermark from "@/components/watermark";
 
 // Add Epilogue font
 const epilogue = Epilogue({
@@ -22,7 +23,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={` ${epilogue.variable}  bg-[#F7F6F4] text-[#2D2D2D]`}>
+      <body
+        className={`${epilogue.variable} bg-[#F7F6F4] text-[#2D2D2D] relative min-h-screen`}
+      >
         <NextTopLoader
           initialPosition={0.08}
           crawlSpeed={200}
@@ -34,7 +37,8 @@ export default function RootLayout({
           color="var(--primary)"
           showSpinner={false}
         />
-        {children}
+        <main className="pb-16">{children}</main>
+        <Watermark />
       </body>
     </html>
   );
