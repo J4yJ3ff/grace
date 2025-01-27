@@ -40,7 +40,7 @@ export function BrandsSection() {
       className="container mx-auto px-4 py-20"
       aria-labelledby="brands-heading"
     >
-      <h2 id="brands-heading" className="text-3xl font-bold text-center mb-16">
+      <h2 id="brands-heading" className="text-5xl font-bold text-center mb-16">
         Brands
       </h2>
       <ul className="flex flex-wrap sm:justify-between justify-center items-center gap-8 opacity-50 list-none p-0">

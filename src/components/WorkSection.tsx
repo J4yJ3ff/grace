@@ -52,8 +52,8 @@ export function WorkSection() {
       className="container mx-auto px-4 py-20"
       aria-labelledby="work-heading"
     >
-      <h2 id="work-heading" className="text-3xl font-bold text-center mb-16">
-        Latest work
+      <h2 id="work-heading" className="text-5xl font-bold text-center mb-16">
+        Portfolio
       </h2>
       <ul className="grid grid-cols-2 md:grid-cols-3 gap-8 list-none p-0">
         {projects.map((project) => (

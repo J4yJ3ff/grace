@@ -16,7 +16,7 @@ export function TestimonialsSection() {
     >
       <h2
         id="testimonials-heading"
-        className="text-3xl font-bold text-center mb-16"
+        className="text-5xl font-bold text-center mb-16"
       >
         Testimonials
       </h2>
@@ -26,7 +26,7 @@ export function TestimonialsSection() {
       >
         {testimonials.map((testimonial) => (
           <li key={testimonial.id}>
-            <article className="bg-[#E5E5E5] p-8 rounded-lg h-full">
+            <article className="bg-[#E5E5E5] p-8  h-full">
               <figure>
                 <blockquote>
                   <p className="mb-4">&quot;{testimonial.text}&quot;</p>
