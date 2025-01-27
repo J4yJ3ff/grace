@@ -13,7 +13,7 @@ export function HeroSection() {
         </div>
 
         <div className="hidden md:block">
-          <p className=" mb-14">
+          <p className="text-lg mb-14">
             Create a strong, memorable brand with a custom design that brings
             your vision to life and engages your audience.
           </p>
@@ -35,7 +35,7 @@ export function HeroSection() {
         />
       </div>
       <div className="md:hidden py-4 px-8 flex flex-col items-center">
-        <p className="text-gray-600 mb-8 text-center">
+        <p className="text-gray-600 mb-8 text-lg text-center">
           Create a strong, memorable brand with a custom design that brings your
           vision to life and engages your audience.
         </p>
