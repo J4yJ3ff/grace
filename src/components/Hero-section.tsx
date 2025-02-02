@@ -25,13 +25,14 @@ export function HeroSection() {
           </Button>
         </div>
       </div>
-      <div className="relative">
+      <div className="relative w-full flex justify-center items-center max-w-lg mx-auto">
         <Image
-          src="/assets/HeaderImage_1_(1)_hhX8GgRJWBCpcrJv6miLV.png"
+          src="/assets/Grace-Header-Image.png"
           alt="Designer portrait with geometric shapes"
           width={500}
           height={500}
-          className="w-full"
+          className="w-[70%] h-auto"
+          priority
         />
       </div>
       <div className="md:hidden py-4 px-8 flex flex-col items-center">
