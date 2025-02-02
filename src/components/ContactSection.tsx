@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { SubmitForm } from "@/lib/actions/SubmitForm.action";
+import { Textarea } from "./ui/textarea";
 
 export function ContactSection() {
   return (
@@ -10,20 +12,28 @@ export function ContactSection() {
           Ready to bring your vision to life? Let&apos;s create something
           amazing together.
         </p>
-        <form className="space-y-4">
+        <form action={SubmitForm} className="space-y-4">
           <Input
             type="text"
             placeholder="Name"
+            name="name"
             className="w-full py-8 bg-[#E5E5E5] border-0 placeholder:text-gray-500 rounded-none focus-visible:ring-0 focus-visible:ring-offset-0"
           />
           <Input
             type="email"
+            name="email"
             placeholder="Email"
             className="w-full py-8 bg-[#E5E5E5] border-0 placeholder:text-gray-500 rounded-none focus-visible:ring-0 focus-visible:ring-offset-0"
+          />
+          <Textarea
+            name="message"
+            placeholder="Message"
+            className="w-full h-40 bg-[#E5E5E5] border-0 placeholder:text-gray-500 rounded-none focus-visible:ring-0 focus-visible:ring-offset-0"
           />
           <Button
             variant="default"
             className="px-16 py-8 rounded-none bg-gray-900 hover:bg-gray-800"
+            type="submit"
           >
             <p className="text-base">Submit</p>
           </Button>
