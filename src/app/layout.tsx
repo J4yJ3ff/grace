@@ -3,6 +3,7 @@ import { Epilogue } from "next/font/google";
 import "./globals.css";
 import NextTopLoader from "nextjs-toploader";
 import Watermark from "@/components/watermark";
+import { Toaster } from "sonner";
 
 // Add Epilogue font
 const epilogue = Epilogue({
@@ -39,6 +40,7 @@ export default function RootLayout({
         />
         <main className="pb-16">{children}</main>
         <Watermark />
+        <Toaster />
       </body>
     </html>
   );
