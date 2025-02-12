@@ -14,10 +14,14 @@ export default function Header() {
       title: "Contact",
       href: "#contact",
     },
+    {
+      title: "Blog",
+      href: "/blog",
+    },
   ];
 
   return (
-    <header className="px-8 py-4 sm:flex sm:justify-between sm:flex-row sm:items-center items-center text-center ">
+    <header className="px-8 py-4  sm:flex sm:justify-between sm:flex-row sm:items-center items-center text-center ">
       <div className="mb-4 sm:mb-0">
         <Link
           href="/"

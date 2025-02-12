@@ -4,6 +4,7 @@ import "../globals.css";
 import NextTopLoader from "nextjs-toploader";
 import Watermark from "@/components/watermark";
 import { Toaster } from "sonner";
+import Header from "@/components/Header";
 
 // Add Epilogue font
 const epilogue = Epilogue({
@@ -38,7 +39,10 @@ export default function RootLayout({
           color="var(--primary)"
           showSpinner={false}
         />
-        <main className="pb-16">{children}</main>
+        <main className="pb-16 max-w-5xl mx-auto min-h-screen ">
+          <Header />
+          {children}
+        </main>
         <Watermark />
         <Toaster />
       </body>
