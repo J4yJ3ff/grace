@@ -6,14 +6,12 @@ import { RichText } from "@payloadcms/richtext-lexical/react";
 import type { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
 
 interface PageProps {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>;
 }
 
 const PostDetailsPage = async ({ params }: PageProps) => {
-  const param = await params;
-  const result = await getPostBySlug(param.slug);
+  const { slug } = await params;
+  const result = await getPostBySlug(slug);
 
   const post = result.docs?.[0];
 
