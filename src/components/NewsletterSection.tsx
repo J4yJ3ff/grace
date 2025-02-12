@@ -7,7 +7,15 @@ import { Label } from "./ui/label";
 import { toast } from "sonner";
 import { subscribeToNewsletter } from "@/lib/actions/Newsletter.action";
 
-export function NewsletterSection() {
+interface NewsletterSectionProps {
+  title: string;
+  description: string;
+}
+
+const NewsletterSection: React.FC<NewsletterSectionProps> = ({
+  title,
+  description,
+}) => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -42,12 +50,9 @@ export function NewsletterSection() {
     >
       <div className="max-w-2xl mx-auto text-center">
         <h2 id="newsletter-heading" className="text-4xl font-bold mb-6">
-          Stay Updated
+          {title}
         </h2>
-        <p className="text-xl text-gray-600 mb-8">
-          Subscribe to our newsletter for the latest updates, exclusive content,
-          and special offers.
-        </p>
+        <p className="text-xl text-gray-600 mb-8">{description}</p>
         <form
           onSubmit={handleSubmit}
           className="flex flex-col sm:flex-row gap-4"
@@ -79,4 +84,6 @@ export function NewsletterSection() {
       </div>
     </section>
   );
-}
+};
+
+export default NewsletterSection;

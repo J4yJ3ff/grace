@@ -1,20 +1,27 @@
 import { BrandsSection } from "@/components/BrandsSection";
 import { ContactSection } from "@/components/ContactSection";
-import Header from "@/components/Header";
 import { HeroSection } from "@/components/Hero-section";
-import { NewsletterSection } from "@/components/NewsletterSection";
+import NewsletterSection from "@/components/NewsletterSection";
 import { ServicesSection } from "@/components/ServiceSection";
 import { TestimonialsSection } from "@/components/TestimonialSection";
 import { WorkSection } from "@/components/WorkSection";
 
 export default function Page() {
+  const NewsletterProps = {
+    title: "Stay Updated",
+    description:
+      "Subscribe to our newsletter for the latest updates, exclusive content, and special offers.",
+  };
+
   return (
-    <div className="max-w-5xl mx-auto min-h-screen">
-      <Header />
+    <div>
       <HeroSection />
       <ServicesSection />
       <BrandsSection />
-      <NewsletterSection />
+      <NewsletterSection
+        title={NewsletterProps.title}
+        description={NewsletterProps.description}
+      />
       <WorkSection />
       <TestimonialsSection />
       <ContactSection />
