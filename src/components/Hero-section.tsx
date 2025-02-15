@@ -27,11 +27,11 @@ export function HeroSection() {
       </div>
       <div className="relative w-full flex justify-center items-center max-w-lg mx-auto">
         <Image
-          src="/assets/Grace-Header-Image.png"
+          src="/assets/HeaderImage_1_(1)_hhX8GgRJWBCpcrJv6miLV.png"
           alt="Designer portrait with geometric shapes"
           width={500}
           height={500}
-          className="w-[70%] h-auto"
+          // className="w-[70%] h-auto"
           priority
         />
       </div>

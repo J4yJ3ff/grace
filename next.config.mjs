@@ -6,6 +6,18 @@ const nextConfig = {
   experimental: {
     reactCompiler: false,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "s0oswg4s8sccggwogckkg84c.37.27.188.146.sslip.io",
+      },
+      {
+        protocol: "http",
+        hostname: "localhost:3000",
+      },
+    ],
+  },
 };
 
 export default withPayload(nextConfig);
