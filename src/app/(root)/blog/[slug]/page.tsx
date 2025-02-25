@@ -58,7 +58,10 @@ const PostDetailsPage = async ({ params }: PageProps) => {
 
           <div className="prose prose-lg max-w-none">
             {post.content && (
-              <RichText data={post.content as SerializedEditorState} />
+              <RichText
+                className="rich-text"
+                data={post.content as SerializedEditorState}
+              />
             )}
           </div>
 

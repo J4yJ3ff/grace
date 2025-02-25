@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Cart } from "./store/Cart";
 
 export default function Header() {
   const navLinks = [
@@ -18,6 +19,10 @@ export default function Header() {
       title: "Blog",
       href: "/blog",
     },
+    {
+      title: "Store",
+      href: "/store",
+    },
   ];
 
   return (
@@ -31,7 +36,10 @@ export default function Header() {
           grace<span className="text-[#FF6250]">.</span>
         </Link>
       </div>
-      <nav aria-label="Main navigation">
+      <nav
+        aria-label="Main navigation"
+        className="flex max-sm:flex-col gap-4 items-center justify-center"
+      >
         <ul className="space-x-6 flex flex-wrap justify-center">
           {navLinks.map((link) => (
             <li key={link.title}>
@@ -44,6 +52,8 @@ export default function Header() {
             </li>
           ))}
         </ul>
+
+        <Cart />
       </nav>
     </header>
   );

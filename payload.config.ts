@@ -6,13 +6,14 @@ import path from "path";
 import { Media } from "@/app/collections/Media";
 import { Posts } from "@/app/collections/Posts";
 import { Categories } from "@/app/collections/Categories";
+import { Products } from "@/app/collections/Products";
 
 export default buildConfig({
   editor: lexicalEditor(),
-  collections: [Media, Posts, Categories], // Add collections later
+  collections: [Media, Posts, Categories, Products],
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {
-    outputFile: path.resolve(__dirname, "payload-types.ts"),
+    outputFile: path.resolve(__dirname, "./payload-types.ts"),
   },
   db: mongooseAdapter({ url: process.env.DATABASE_URI || "" }),
   sharp,
