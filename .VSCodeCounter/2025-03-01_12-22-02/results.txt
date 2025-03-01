@@ -1,0 +1,168 @@
+Date : 2025-03-01 12:22:02
+Directory : c:\Users\J4yJ3ff\Desktop\grace
+Total : 90 files,  15057 codes, 60 comments, 504 blanks, all 15621 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| JSON               |          3 |     10,977 |          0 |          2 |     10,979 |
+| TypeScript JSX     |         37 |      2,517 |         13 |        298 |      2,828 |
+| TypeScript         |         23 |      1,172 |         44 |        159 |      1,375 |
+| XML                |         19 |        172 |          0 |         13 |        185 |
+| JavaScript         |          4 |         83 |          3 |         12 |         98 |
+| CSS                |          1 |         79 |          0 |          4 |         83 |
+| JSON with Comments |          1 |         34 |          0 |          1 |         35 |
+| Markdown           |          1 |         23 |          0 |         14 |         37 |
+| SCSS               |          1 |          0 |          0 |          1 |          1 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                        | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                           |         90 |     15,057 |         60 |        504 |     15,621 |
+| . (Files)                                                                                   |         10 |     11,176 |          3 |         31 |     11,210 |
+| public                                                                                      |         19 |        172 |          0 |         13 |        185 |
+| public (Files)                                                                              |          5 |          5 |          0 |          0 |          5 |
+| public\assets                                                                               |         14 |        167 |          0 |         13 |        180 |
+| src                                                                                         |         61 |      3,709 |         57 |        460 |      4,226 |
+| src\app                                                                                     |         30 |      1,730 |         44 |        188 |      1,962 |
+| src\app (Files)                                                                             |          1 |         79 |          0 |          4 |         83 |
+| src\app\(auth)                                                                              |          4 |        287 |          1 |         34 |        322 |
+| src\app\(auth) (Files)                                                                      |          1 |         45 |          1 |          4 |         50 |
+| src\app\(auth)\_components                                                                  |          1 |         66 |          0 |         10 |         76 |
+| src\app\(auth)\sign-up                                                                      |          1 |        121 |          0 |         12 |        133 |
+| src\app\(auth)\verify-email                                                                 |          1 |         55 |          0 |          8 |         63 |
+| src\app\(payload)                                                                           |          8 |        128 |         12 |         28 |        168 |
+| src\app\(payload) (Files)                                                                   |          2 |         24 |          2 |          7 |         33 |
+| src\app\(payload)\admin                                                                     |          3 |         80 |          4 |         14 |         98 |
+| src\app\(payload)\admin (Files)                                                             |          1 |         46 |          0 |          2 |         48 |
+| src\app\(payload)\admin\[[...segments]]                                                     |          2 |         34 |          4 |         12 |         50 |
+| src\app\(payload)\api                                                                       |          3 |         24 |          6 |          7 |         37 |
+| src\app\(payload)\api\[...slug]                                                             |          1 |         16 |          2 |          2 |         20 |
+| src\app\(payload)\api\graphql                                                               |          1 |          4 |          2 |          3 |          9 |
+| src\app\(payload)\api\graphql-playground                                                    |          1 |          4 |          2 |          2 |          8 |
+| src\app\(root)                                                                              |          9 |        641 |          5 |         70 |        716 |
+| src\app\(root) (Files)                                                                      |          1 |         47 |          1 |          4 |         52 |
+| src\app\(root)\(home)                                                                       |          1 |         28 |          0 |          3 |         31 |
+| src\app\(root)\account                                                                      |          3 |        282 |          4 |         25 |        311 |
+| src\app\(root)\account (Files)                                                              |          1 |         83 |          0 |          9 |         92 |
+| src\app\(root)\account\downloads                                                            |          1 |        105 |          3 |          8 |        116 |
+| src\app\(root)\account\orders                                                               |          1 |         94 |          1 |          8 |        103 |
+| src\app\(root)\blog                                                                         |          2 |        174 |          0 |         18 |        192 |
+| src\app\(root)\blog (Files)                                                                 |          1 |         85 |          0 |          9 |         94 |
+| src\app\(root)\blog\[slug]                                                                  |          1 |         89 |          0 |          9 |         98 |
+| src\app\(root)\store                                                                        |          1 |         23 |          0 |          6 |         29 |
+| src\app\(root)\thank-you                                                                    |          1 |         87 |          0 |         14 |        101 |
+| src\app\api                                                                                 |          1 |          0 |          0 |          1 |          1 |
+| src\app\api\webhooks                                                                        |          1 |          0 |          0 |          1 |          1 |
+| src\app\api\webhooks\stripe                                                                 |          1 |          0 |          0 |          1 |          1 |
+| src\app\collections                                                                         |          7 |        595 |         26 |         51 |        672 |
+| src\components                                                                              |         21 |      1,531 |          1 |        176 |      1,708 |
+| src\components (Files)                                                                      |          9 |        572 |          1 |         37 |        610 |
+| src\components\emails                                                                       |          2 |        310 |          0 |         44 |        354 |
+| src\components\store                                                                        |          3 |        234 |          0 |         27 |        261 |
+| src\components\ui                                                                           |          7 |        415 |          0 |         68 |        483 |
+| src\hooks                                                                                   |          1 |         93 |          0 |         15 |        108 |
+| src\lib                                                                                     |          9 |        355 |         12 |         81 |        448 |
+| src\lib (Files)                                                                             |          3 |         55 |          0 |         12 |         67 |
+| src\lib\actions                                                                             |          6 |        300 |         12 |         69 |        381 |
++---------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                                    | language           | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| c:\Users\J4yJ3ff\Desktop\grace\README.md                                                    | Markdown           |         23 |          0 |         14 |         37 |
+| c:\Users\J4yJ3ff\Desktop\grace\components.json                                              | JSON               |         21 |          0 |          0 |         21 |
+| c:\Users\J4yJ3ff\Desktop\grace\eslint.config.mjs                                            | JavaScript         |         12 |          0 |          5 |         17 |
+| c:\Users\J4yJ3ff\Desktop\grace\next.config.mjs                                              | JavaScript         |         19 |          2 |          3 |         24 |
+| c:\Users\J4yJ3ff\Desktop\grace\package-lock.json                                            | JSON               |     10,902 |          0 |          1 |     10,903 |
+| c:\Users\J4yJ3ff\Desktop\grace\package.json                                                 | JSON               |         54 |          0 |          1 |         55 |
+| c:\Users\J4yJ3ff\Desktop\grace\payload.config.ts                                            | TypeScript         |         44 |          0 |          2 |         46 |
+| c:\Users\J4yJ3ff\Desktop\grace\postcss.config.mjs                                           | JavaScript         |          6 |          1 |          2 |          9 |
+| c:\Users\J4yJ3ff\Desktop\grace\public\assets\Group_5334_wdXH8uKFtZlb_tWnT7OV6.svg           | XML                |          8 |          0 |          1 |          9 |
+| c:\Users\J4yJ3ff\Desktop\grace\public\assets\Skills_Card_Icon_(1)_8z5GOmSorb9N6n0nMbiFm.svg | XML                |          4 |          0 |          1 |          5 |
+| c:\Users\J4yJ3ff\Desktop\grace\public\assets\Skills_Card_Icon_(2)_pN5QqxCAL_eVcsO64hLEq.svg | XML                |          4 |          0 |          1 |          5 |
+| c:\Users\J4yJ3ff\Desktop\grace\public\assets\Skills_Card_Icon__LpNTqv86nnJshCYxjKmf.svg     | XML                |          4 |          0 |          1 |          5 |
+| c:\Users\J4yJ3ff\Desktop\grace\public\assets\Stars_PUGP0ytcpz_q4u_zu1f6D.svg                | XML                |          7 |          0 |          1 |          8 |
+| c:\Users\J4yJ3ff\Desktop\grace\public\assets\geekbitsLLC_m9tvnxproq9DJOzCf0cYY.svg          | XML                |         16 |          0 |          0 |         16 |
+| c:\Users\J4yJ3ff\Desktop\grace\public\assets\grace._(1)_AdzdACYzo4yL4i-2eNah6.svg           | XML                |          4 |          0 |          1 |          5 |
+| c:\Users\J4yJ3ff\Desktop\grace\public\assets\grace._XdehudAbp16HLewMf7J7q.svg               | XML                |          4 |          0 |          1 |          5 |
+| c:\Users\J4yJ3ff\Desktop\grace\public\assets\image_1_(Traced)_fJv7LFlp79qCdK-P9dcO3.svg     | XML                |          3 |          0 |          1 |          4 |
+| c:\Users\J4yJ3ff\Desktop\grace\public\assets\image_2_(Traced)_un-DIPh251K9AY6xPqHC_.svg     | XML                |          3 |          0 |          1 |          4 |
+| c:\Users\J4yJ3ff\Desktop\grace\public\assets\image_5_(Traced)_4_9XR2jWwpowgau4PiUHk.svg     | XML                |          3 |          0 |          1 |          4 |
+| c:\Users\J4yJ3ff\Desktop\grace\public\assets\image_7_(Traced)_N5vm6TNE0kU-zu0t0CING.svg     | XML                |          3 |          0 |          1 |          4 |
+| c:\Users\J4yJ3ff\Desktop\grace\public\assets\logo-template_-Ht60nq6CvKsfX4ygziI9.svg        | XML                |          3 |          0 |          1 |          4 |
+| c:\Users\J4yJ3ff\Desktop\grace\public\assets\logo_r1qaJQiri6sK3rPyq-Sar.svg                 | XML                |        101 |          0 |          1 |        102 |
+| c:\Users\J4yJ3ff\Desktop\grace\public\file.svg                                              | XML                |          1 |          0 |          0 |          1 |
+| c:\Users\J4yJ3ff\Desktop\grace\public\globe.svg                                             | XML                |          1 |          0 |          0 |          1 |
+| c:\Users\J4yJ3ff\Desktop\grace\public\next.svg                                              | XML                |          1 |          0 |          0 |          1 |
+| c:\Users\J4yJ3ff\Desktop\grace\public\vercel.svg                                            | XML                |          1 |          0 |          0 |          1 |
+| c:\Users\J4yJ3ff\Desktop\grace\public\window.svg                                            | XML                |          1 |          0 |          0 |          1 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\(auth)\_components\VerifyEmail.tsx                   | TypeScript JSX     |         66 |          0 |         10 |         76 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\(auth)\layout.tsx                                    | TypeScript JSX     |         45 |          1 |          4 |         50 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\(auth)\sign-up\page.tsx                              | TypeScript JSX     |        121 |          0 |         12 |        133 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\(auth)\verify-email\page.tsx                         | TypeScript JSX     |         55 |          0 |          8 |         63 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\(payload)\admin\[[...segments]]\not-found.tsx        | TypeScript JSX     |         17 |          2 |          6 |         25 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\(payload)\admin\[[...segments]]\page.tsx             | TypeScript JSX     |         17 |          2 |          6 |         25 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\(payload)\admin\importMap.js                         | JavaScript         |         46 |          0 |          2 |         48 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\(payload)\api\[...slug]\route.ts                     | TypeScript         |         16 |          2 |          2 |         20 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\(payload)\api\graphql-playground\route.ts            | TypeScript         |          4 |          2 |          2 |          8 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\(payload)\api\graphql\route.ts                       | TypeScript         |          4 |          2 |          3 |          9 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\(payload)\custom.scss                                | SCSS               |          0 |          0 |          1 |          1 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\(payload)\layout.tsx                                 | TypeScript JSX     |         24 |          2 |          6 |         32 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\(root)\(home)\page.tsx                               | TypeScript JSX     |         28 |          0 |          3 |         31 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\(root)\account\downloads\page.tsx                    | TypeScript JSX     |        105 |          3 |          8 |        116 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\(root)\account\orders\page.tsx                       | TypeScript JSX     |         94 |          1 |          8 |        103 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\(root)\account\page.tsx                              | TypeScript JSX     |         83 |          0 |          9 |         92 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\(root)\blog\[slug]\page.tsx                          | TypeScript JSX     |         89 |          0 |          9 |         98 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\(root)\blog\page.tsx                                 | TypeScript JSX     |         85 |          0 |          9 |         94 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\(root)\layout.tsx                                    | TypeScript JSX     |         47 |          1 |          4 |         52 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\(root)\store\page.tsx                                | TypeScript JSX     |         23 |          0 |          6 |         29 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\(root)\thank-you\page.tsx                            | TypeScript JSX     |         87 |          0 |         14 |        101 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\api\webhooks\stripe\route.ts                         | TypeScript         |          0 |          0 |          1 |          1 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\collections\Categories.ts                            | TypeScript         |         26 |          1 |          3 |         30 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\collections\Media.ts                                 | TypeScript         |         27 |          1 |          3 |         31 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\collections\Orders.ts                                | TypeScript         |         80 |          2 |          5 |         87 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\collections\Posts.ts                                 | TypeScript         |         62 |          1 |          3 |         66 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\collections\ProductFile.ts                           | TypeScript         |        112 |          4 |         14 |        130 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\collections\Products.ts                              | TypeScript         |        187 |         17 |         19 |        223 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\collections\Users.ts                                 | TypeScript         |        101 |          0 |          4 |        105 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\app\globals.css                                          | CSS                |         79 |          0 |          4 |         83 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\components\BrandsSection.tsx                             | TypeScript JSX     |         60 |          0 |          3 |         63 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\components\ContactSection.tsx                            | TypeScript JSX     |         72 |          0 |          4 |         76 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\components\Header.tsx                                    | TypeScript JSX     |         79 |          0 |          6 |         85 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\components\Hero-section.tsx                              | TypeScript JSX     |         49 |          1 |          3 |         53 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\components\NewsletterSection.tsx                         | TypeScript JSX     |         81 |          0 |          9 |         90 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\components\ServiceSection.tsx                            | TypeScript JSX     |         65 |          0 |          3 |         68 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\components\TestimonialSection.tsx                        | TypeScript JSX     |         55 |          0 |          3 |         58 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\components\WorkSection.tsx                               | TypeScript JSX     |         75 |          0 |          3 |         78 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\components\emails\PrimaryActionEmail.tsx                 | TypeScript JSX     |        115 |          0 |         13 |        128 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\components\emails\ReceiptEmail.tsx                       | TypeScript JSX     |        195 |          0 |         31 |        226 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\components\store\Cart.tsx                                | TypeScript JSX     |        137 |          0 |         14 |        151 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\components\store\ProductCard.tsx                         | TypeScript JSX     |         69 |          0 |          9 |         78 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\components\store\ProductList.tsx                         | TypeScript JSX     |         28 |          0 |          4 |         32 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\components\ui\button.tsx                                 | TypeScript JSX     |         52 |          0 |          6 |         58 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\components\ui\form.tsx                                   | TypeScript JSX     |        153 |          0 |         26 |        179 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\components\ui\input.tsx                                  | TypeScript JSX     |         19 |          0 |          4 |         23 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\components\ui\label.tsx                                  | TypeScript JSX     |         21 |          0 |          6 |         27 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\components\ui\sheet.tsx                                  | TypeScript JSX     |        125 |          0 |         16 |        141 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\components\ui\sonner.tsx                                 | TypeScript JSX     |         26 |          0 |          6 |         32 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\components\ui\textarea.tsx                               | TypeScript JSX     |         19 |          0 |          4 |         23 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\components\watermark.tsx                                 | TypeScript JSX     |         36 |          0 |          3 |         39 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\hooks\useCartStore.ts                                    | TypeScript         |         93 |          0 |         15 |        108 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\lib\actions\Newsletter.action.ts                         | TypeScript         |         54 |          3 |         14 |         71 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\lib\actions\Posts.action.ts                              | TypeScript         |         24 |          1 |          4 |         29 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\lib\actions\Products.actions.ts                          | TypeScript         |         10 |          0 |          2 |         12 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\lib\actions\Stripe.action.ts                             | TypeScript         |         91 |          7 |         22 |        120 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\lib\actions\SubmitForm.action.ts                         | TypeScript         |         32 |          0 |          8 |         40 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\lib\actions\Users.action.ts                              | TypeScript         |         89 |          1 |         19 |        109 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\lib\payload.ts                                           | TypeScript         |         39 |          0 |          8 |         47 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\lib\stripe.ts                                            | TypeScript         |          5 |          0 |          1 |          6 |
+| c:\Users\J4yJ3ff\Desktop\grace\src\lib\utils.ts                                             | TypeScript         |         11 |          0 |          3 |         14 |
+| c:\Users\J4yJ3ff\Desktop\grace\tailwind.config.ts                                           | TypeScript         |         61 |          0 |          2 |         63 |
+| c:\Users\J4yJ3ff\Desktop\grace\tsconfig.json                                                | JSON with Comments |         34 |          0 |          1 |         35 |
+| Total                                                                                       |                    |     15,057 |         60 |        504 |     15,621 |
++---------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+

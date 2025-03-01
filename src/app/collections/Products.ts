@@ -84,6 +84,8 @@ export const Products: CollectionConfig = {
   admin: {
     defaultColumns: ["name", "price", "category", "id"],
     useAsTitle: "name",
+    group: "E-commerce",
+    description: "Products for Grace's portfolio website",
   },
   access: {
     read: productsAccess,
@@ -144,6 +146,7 @@ export const Products: CollectionConfig = {
         condition: () => false,
       },
     },
+
     {
       name: "name",
       type: "text",

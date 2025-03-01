@@ -24,8 +24,6 @@ export async function createCheckoutSession(
   const nextCookies = await cookies();
   const { user } = await getServerSideUser(nextCookies);
 
-  console.log("User: ", user);
-
   if (!user) {
     throw new Error("Sign in to Checkout");
   }
@@ -82,6 +80,14 @@ export async function createCheckoutSession(
         orderId: order.id,
       },
       line_items,
+    });
+
+    await payload.update({
+      collection: "orders",
+      id: order.id,
+      data: {
+        stripeId: stripeSession.id,
+      },
     });
 
     return { url: stripeSession.url };
