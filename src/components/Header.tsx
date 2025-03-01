@@ -1,7 +1,14 @@
 import Link from "next/link";
 import { Cart } from "./store/Cart";
 
-export default function Header() {
+import { getServerSideUser } from "@/lib/actions/Users.action";
+import { User } from "lucide-react";
+import { cookies } from "next/headers";
+
+export default async function Header() {
+  const cookie = await cookies();
+  const { user } = await getServerSideUser(cookie);
+
   const navLinks = [
     {
       title: "Services",
@@ -26,7 +33,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="px-8 py-4  sm:flex sm:justify-between sm:flex-row sm:items-center items-center text-center ">
+    <header className="px-8 py-4 sm:flex sm:justify-between sm:flex-row sm:items-center items-center text-center">
       <div className="mb-4 sm:mb-0">
         <Link
           href="/"
@@ -53,7 +60,24 @@ export default function Header() {
           ))}
         </ul>
 
-        <Cart />
+        <div className="flex items-center gap-4">
+          <Cart />
+          {user ? (
+            <Link
+              href="/account"
+              className="text-gray-600 hover:text-[#FF6250]"
+            >
+              <User className="h-5 w-5" />
+            </Link>
+          ) : (
+            <Link
+              href="/sign-in"
+              className="text-gray-600 hover:text-[#FF6250]"
+            >
+              Sign In
+            </Link>
+          )}
+        </div>
       </nav>
     </header>
   );

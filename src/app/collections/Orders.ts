@@ -1,7 +1,9 @@
-import { Access, CollectionConfig } from "payload";
+import type { Access, CollectionConfig } from "payload";
 
+// Users can only see their own orders
 const yourOwn: Access = ({ req: { user } }) => {
-  if (user?.role === "admin") return true;
+  if (!user) return false;
+  if (user.role === "admin") return true;
 
   return {
     user: {
@@ -10,17 +12,25 @@ const yourOwn: Access = ({ req: { user } }) => {
   };
 };
 
+// Only admin can create/update/delete orders
+const isAdmin: Access = ({ req: { user } }) => {
+  if (!user) return false;
+  if (user.role === "admin") return true;
+  return false;
+};
+
 export const Orders: CollectionConfig = {
   slug: "orders",
-  //   admin: {
-  //     useAsTitle: "Your Orders",
-  //     description: "A summary of all your orders on NoHoaxx.",
-  //   },
+  admin: {
+    useAsTitle: "id",
+    description: "Customer orders for Grace's products",
+    group: "E-commerce",
+  },
   access: {
     read: yourOwn,
-    update: ({ req }) => req.user?.role === "admin",
-    delete: ({ req }) => req.user?.role === "admin",
-    create: ({ req }) => req.user?.role === "admin",
+    update: isAdmin,
+    delete: isAdmin,
+    create: ({ req }) => Boolean(req.user), // Logged in users can create orders
   },
   fields: [
     {
@@ -51,6 +61,26 @@ export const Orders: CollectionConfig = {
       relationTo: "products",
       required: true,
       hasMany: true,
+    },
+    {
+      name: "orderDate",
+      type: "date",
+      admin: {
+        description: "Date when the order was placed",
+        position: "sidebar",
+      },
+      defaultValue: () => new Date(),
+    },
+    {
+      name: "status",
+      type: "select",
+      defaultValue: "processing",
+      options: [
+        { label: "Processing", value: "processing" },
+        { label: "Shipped", value: "shipped" },
+        { label: "Delivered", value: "delivered" },
+        { label: "Cancelled", value: "cancelled" },
+      ],
     },
   ],
 };

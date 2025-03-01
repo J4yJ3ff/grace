@@ -3,8 +3,8 @@
 import { z } from "zod";
 import { getPayloadClient } from "../payload";
 import { NextRequest } from "next/server";
-import { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
-import { User } from "payload";
+import type { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
+import type { User } from "payload";
 
 const AuthCredentialsValidator = z.object({
   email: z.string().email(),
@@ -79,3 +79,30 @@ export const getServerSideUser = async (
 
   return { user };
 };
+
+export async function getUserOrders() {
+  const payload = await getPayloadClient();
+
+  try {
+    const { user } = await payload.auth.getMe();
+
+    if (!user) {
+      return { success: false, error: "Not authenticated" };
+    }
+
+    const { docs: orders } = await payload.find({
+      collection: "orders",
+      where: {
+        user: {
+          equals: user.id,
+        },
+      },
+      depth: 2, // Include product details
+    });
+
+    return { success: true, orders };
+  } catch (error) {
+    console.error("Error fetching user orders:", error);
+    return { success: false, error: "Failed to fetch orders" };
+  }
+}

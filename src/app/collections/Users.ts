@@ -2,7 +2,8 @@ import { PrimaryActionEmailHtml } from "@/components/emails/PrimaryActionEmail";
 import { Access, CollectionConfig } from "payload";
 
 const adminsAndUser: Access = ({ req: { user } }) => {
-  if (user?.role === "admin") return true;
+  if (!user) return false;
+  if (user.role === "admin") return true;
 
   return {
     id: {
@@ -32,8 +33,8 @@ export const Users: CollectionConfig = {
   },
   admin: {
     useAsTitle: "email",
-    hidden: ({ user }) => !user || user?.role !== "admin",
-    defaultColumns: ["id"],
+    description: "User accounts for Grace's portfolio website",
+    defaultColumns: ["email", "name", "role"],
   },
   fields: [
     {

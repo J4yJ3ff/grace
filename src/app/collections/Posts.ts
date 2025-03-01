@@ -1,9 +1,23 @@
 import type { CollectionConfig } from "payload";
 
+// Only admin can create/update/delete posts
+const isAdmin = ({ req: { user } }) => {
+  if (!user) return false;
+  if (user.role === "admin") return true;
+  return false;
+};
+
 export const Posts: CollectionConfig = {
   slug: "posts",
   admin: {
     useAsTitle: "title",
+    description: "Blog posts for Grace's portfolio website",
+  },
+  access: {
+    read: isAdmin,
+    create: isAdmin,
+    update: isAdmin,
+    delete: isAdmin,
   },
   fields: [
     {

@@ -1,11 +1,25 @@
 import { stripe } from "@/lib/stripe";
-import {
+import type {
   CollectionConfig,
   CollectionBeforeChangeHook,
   CollectionAfterChangeHook,
   Access,
   User,
 } from "payload";
+
+// export type Product = {
+//   name: string
+//   description: string
+//   price: number
+//   category: string
+//   product_files: string
+//   priceId: string
+//   stripeId: string
+//   productImages: {
+//     image: string
+//   }[]
+//   user: string | User
+// }
 
 const addUser: CollectionBeforeChangeHook<Product> = async ({
   req,
@@ -19,13 +33,11 @@ const addUser: CollectionBeforeChangeHook<Product> = async ({
 };
 
 const syncUser: CollectionAfterChangeHook<Product> = async ({ req, doc }) => {
-  // console.log("Syncing user after change", { doc });
   const fullUser = await req.payload.findByID({
     collection: "users",
     id: req.user?.id,
   });
 
-  // console.log("Full user", fullUser);
   if (fullUser && typeof fullUser === "object") {
     const { products } = fullUser;
 
@@ -41,8 +53,6 @@ const syncUser: CollectionAfterChangeHook<Product> = async ({ req, doc }) => {
 
     const dataToUpdate = [...createdProductIDs, doc.id];
 
-    // console.log("Updating user products list", { dataToUpdate });
-
     await req.payload.update({
       collection: "users",
       id: fullUser.id,
@@ -50,40 +60,24 @@ const syncUser: CollectionAfterChangeHook<Product> = async ({ req, doc }) => {
         products: dataToUpdate,
       },
     });
-  } else {
-    console.log("User not found or invalid user data", {
-      userId: req.user?.id,
-    });
   }
 };
 
-const isAdminOrHasAccess =
-  (): Access =>
-  ({ req: { user: _user } }) => {
-    const user = _user as User | undefined;
+// Only admin can create/update/delete products
+const isAdmin: Access = ({ req: { user } }) => {
+  if (!user) return false;
+  if (user.role === "admin") return true;
+  return false;
+};
 
-    if (!user) return false;
-    if (user.role === "admin") return true;
+// Admin can see all products, users can only see published products
+const productsAccess: Access = ({ req: { user } }) => {
+  // Admin can see all products
+  if (user?.role === "admin") return true;
 
-    const userProductIDs = (
-      (user.products || []) as (string | { id: string })[]
-    ).reduce<Array<string>>((acc, product) => {
-      if (!product) return acc;
-      if (typeof product === "string") {
-        acc.push(product);
-      } else {
-        acc.push(product.id);
-      }
-
-      return acc;
-    }, []);
-
-    return {
-      id: {
-        in: userProductIDs,
-      },
-    };
-  };
+  // Public access to view products (for store page)
+  return false;
+};
 
 export const Products: CollectionConfig = {
   slug: "products",
@@ -92,10 +86,10 @@ export const Products: CollectionConfig = {
     useAsTitle: "name",
   },
   access: {
-    read: isAdminOrHasAccess(),
-    create: isAdminOrHasAccess(),
-    update: isAdminOrHasAccess(),
-    delete: isAdminOrHasAccess(),
+    read: productsAccess,
+    create: isAdmin,
+    update: isAdmin,
+    delete: isAdmin,
   },
   hooks: {
     beforeChange: [

@@ -1,4 +1,8 @@
-import { CollectionConfig, Access, CollectionBeforeChangeHook } from "payload";
+import type {
+  CollectionConfig,
+  Access,
+  CollectionBeforeChangeHook,
+} from "payload";
 
 // Add User type definition
 type User = {
@@ -11,11 +15,12 @@ const addUser: CollectionBeforeChangeHook = ({ req, data }) => {
   return { ...data, user: user?.id };
 };
 
+// Users can only access product files they own or have purchased
 const yourOwnAndPurchased: Access = async ({ req }) => {
   const user = req.user as User | null;
 
-  if (user?.role === "admin") return true;
   if (!user) return false;
+  if (user.role === "admin") return true;
 
   const { docs: products } = await req.payload.find({
     collection: "products",
@@ -27,7 +32,7 @@ const yourOwnAndPurchased: Access = async ({ req }) => {
     },
   });
 
-  const ownProductFileIds = products.map((prod) => prod.product_files).flat();
+  const ownProductFileIds = products.flatMap((prod) => prod.product_files);
 
   const { docs: orders } = await req.payload.find({
     collection: "orders",
@@ -62,6 +67,13 @@ const yourOwnAndPurchased: Access = async ({ req }) => {
   };
 };
 
+// Only admin can create/update/delete product files
+const isAdmin: Access = ({ req: { user } }) => {
+  if (!user) return false;
+  if (user.role === "admin") return true;
+  return false;
+};
+
 const preserveFilename: CollectionBeforeChangeHook = async ({
   data,
   originalDoc,
@@ -76,6 +88,9 @@ const preserveFilename: CollectionBeforeChangeHook = async ({
 export const ProductFiles: CollectionConfig = {
   slug: "product_files",
   admin: {
+    useAsTitle: "filename",
+    description: "Digital files for products",
+    group: "E-commerce",
     hidden: ({ user }) => !user || user?.role !== "admin",
   },
   hooks: {
@@ -83,8 +98,9 @@ export const ProductFiles: CollectionConfig = {
   },
   access: {
     read: yourOwnAndPurchased,
-    update: ({ req }) => req.user?.role === "admin",
-    delete: ({ req }) => req.user?.role === "admin",
+    update: isAdmin,
+    delete: isAdmin,
+    create: isAdmin,
   },
   upload: {
     staticURL: "/product_files",
@@ -101,6 +117,13 @@ export const ProductFiles: CollectionConfig = {
       },
       hasMany: false,
       required: true,
+    },
+    {
+      name: "description",
+      type: "text",
+      admin: {
+        description: "Description of the file",
+      },
     },
   ],
 };
