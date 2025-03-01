@@ -11,7 +11,11 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart } from "lucide-react";
-import { useCartStore, CartItem } from "@/hooks/useCartStore";
+import { useCartStore, type CartItem } from "@/hooks/useCartStore";
+
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+import { createCheckoutSession } from "@/lib/actions/Stripe.action";
 
 export function Cart() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -19,6 +23,9 @@ export function Cart() {
 
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [cartTotal, setCartTotal] = useState<number>(0);
+  const [isCheckingOut, setIsCheckingOut] = useState(false);
+
+  const router = useRouter();
 
   useEffect(() => {
     setMounted(true);
@@ -36,6 +43,24 @@ export function Cart() {
   }, []);
 
   const { removeItem, updateQuantity } = useCartStore();
+
+  const handleCheckout = async () => {
+    setIsCheckingOut(true);
+    try {
+      const productIds = cartItems.map((item) => item.id);
+      const result = await createCheckoutSession({ productIds });
+      if (result.url) {
+        router.push(result.url);
+      } else {
+        throw new Error("Failed to create checkout session");
+      }
+    } catch (error) {
+      toast.error("Checkout failed. Please try again.");
+      console.error("Checkout error:", error);
+    } finally {
+      setIsCheckingOut(false);
+    }
+  };
 
   if (!mounted) {
     return (
@@ -109,8 +134,12 @@ export function Cart() {
                 <span className="text-xl font-bold">Total:</span>
                 <span className="text-xl">{formatCurrency(cartTotal)}</span>
               </div>
-              <Button className="w-full mt-6 px-16 py-8 rounded-none">
-                Checkout
+              <Button
+                className="w-full mt-6 px-16 py-8 rounded-none"
+                onClick={handleCheckout}
+                disabled={isCheckingOut}
+              >
+                {isCheckingOut ? "Processing..." : "Checkout"}
               </Button>
             </>
           )}

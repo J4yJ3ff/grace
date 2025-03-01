@@ -12,12 +12,12 @@ export async function SubmitForm(FormData: FormData) {
 
   try {
     const transporter = nodemailer.createTransport({
-      host: "box.cloudenv.cc",
+      host: process.env.SMTP_HOST,
       port: 587,
       secure: false,
       auth: {
-        user: "services@cloudenv.io",
-        pass: "microbiology2",
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
       },
     });
 

@@ -7,10 +7,35 @@ import { Media } from "@/app/collections/Media";
 import { Posts } from "@/app/collections/Posts";
 import { Categories } from "@/app/collections/Categories";
 import { Products } from "@/app/collections/Products";
+import { Users } from "@/app/collections/Users";
+import { ProductFiles } from "@/app/collections/ProductFile";
+import { Orders } from "@/app/collections/Orders";
+import { nodemailerAdapter } from "@payloadcms/email-nodemailer";
+import nodemailer from "nodemailer";
 
 export default buildConfig({
+  email: nodemailerAdapter({
+    defaultFromAddress: "services@cloudenv.io",
+    defaultFromName: "Cloudenv",
+    transport: nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: 587,
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    }),
+  }),
   editor: lexicalEditor(),
-  collections: [Media, Posts, Categories, Products],
+  collections: [
+    Media,
+    Posts,
+    Categories,
+    Products,
+    Users,
+    ProductFiles,
+    Orders,
+  ],
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {
     outputFile: path.resolve(__dirname, "./payload-types.ts"),

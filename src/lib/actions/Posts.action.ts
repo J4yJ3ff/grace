@@ -1,10 +1,10 @@
 // getPost.ts
 "use server";
 
-import { Payload } from "@/lib/payload";
+import { getPayloadClient } from "@/lib/payload";
 
 export async function getPost() {
-  return await Payload().then((payload) => {
+  return await getPayloadClient().then((payload) => {
     return payload.find({
       collection: "posts",
       draft: false,
@@ -14,7 +14,7 @@ export async function getPost() {
 }
 
 export async function getPostBySlug(slug: string) {
-  return await Payload().then((payload) => {
+  return await getPayloadClient().then((payload) => {
     return payload.find({
       collection: "posts",
       where: {
