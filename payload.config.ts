@@ -15,11 +15,11 @@ import nodemailer from "nodemailer";
 
 export default buildConfig({
   email: nodemailerAdapter({
-    defaultFromAddress: "services@cloudenv.io",
+    defaultFromAddress: "info@nohoaxx.com",
     defaultFromName: "Cloudenv",
     transport: nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: 587,
+      port: 465,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,

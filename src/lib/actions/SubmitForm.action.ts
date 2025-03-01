@@ -13,8 +13,8 @@ export async function SubmitForm(FormData: FormData) {
   try {
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: 587,
-      secure: false,
+      port: 465,
+      secure: true,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
@@ -22,7 +22,7 @@ export async function SubmitForm(FormData: FormData) {
     });
 
     const mailOptions = {
-      from: { name: "CloudEnv", address: "services@cloudenv.io" },
+      from: { name: "CloudEnv", address: "info@nohoaxx.com" },
       to: "gaspergvj@gmail.com",
       subject: "New message from your website",
       text: `You have a new message from ${name} with email ${email}
@@ -32,7 +32,7 @@ export async function SubmitForm(FormData: FormData) {
 
     const info = await transporter.sendMail(mailOptions);
 
-    console.log("Message sent: %s", info.response);
+    console.log("Message sent: %s", info);
   } catch (error) {
     console.error(error);
   }

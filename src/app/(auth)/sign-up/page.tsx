@@ -38,8 +38,10 @@ export default function SignUpPage() {
     try {
       const result = await createUser(data);
       if (result.success) {
-        toast.success(`Account created successfully. Welcome!`);
-        router.push("/dashboard"); // Redirect to dashboard or home page
+        toast.success(
+          `Account created successfully. Please check your email to verify your account.`
+        );
+        router.push("/verify-email"); // Redirect to dashboard or home page
       } else {
         toast.error(result.error || "Something went wrong. Please try again.");
       }

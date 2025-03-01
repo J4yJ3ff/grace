@@ -8,8 +8,8 @@ let cachedPayload: Payload | null = null;
 
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
-  secure: false,
-  port: 587,
+  secure: true,
+  port: 465,
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
@@ -32,7 +32,7 @@ export const getPayloadClient = async () => {
       email: {
         transport: transporter,
         fromAddress: "info@nohoaxx.com",
-        fromName: "NoHoaxx",
+        fromName: "Grace - Visual Designer",
       },
     });
 

@@ -63,13 +63,13 @@ export async function createCheckoutSession(
     quantity: 1,
   }));
 
-  line_items.push({
-    price: "price_1PPBBN09Gl7km4EOW7JWxJMK",
-    quantity: 1,
-    adjustable_quantity: {
-      enabled: false,
-    },
-  });
+  // line_items.push({
+  //   price: "price_1PPBBN09Gl7km4EOW7JWxJMK",
+  //   quantity: 1,
+  //   adjustable_quantity: {
+  //     enabled: false,
+  //   },
+  // });
 
   try {
     const stripeSession = await stripe.checkout.sessions.create({

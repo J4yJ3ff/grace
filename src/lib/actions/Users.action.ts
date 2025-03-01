@@ -39,9 +39,6 @@ export async function createUser(
       role: "user",
     },
   });
-
-  // Here you would typically send a verification email
-  // For now, we'll just return success
   return { success: true, sentToEmail: email };
 }
 

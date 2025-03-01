@@ -31,10 +31,22 @@ export const Users: CollectionConfig = {
     delete: ({ req }) => req.user?.role === "admin",
   },
   admin: {
+    useAsTitle: "email",
     hidden: ({ user }) => !user || user?.role !== "admin",
     defaultColumns: ["id"],
   },
   fields: [
+    {
+      name: "email",
+      type: "email",
+      required: true,
+      unique: true,
+    },
+    {
+      name: "password",
+      type: "text",
+      required: true,
+    },
     {
       name: "products",
       label: "Products",
@@ -57,14 +69,13 @@ export const Users: CollectionConfig = {
     },
     {
       name: "role",
-      defaultValue: "user",
-      required: true,
-
       type: "select",
       options: [
         { label: "Admin", value: "admin" },
         { label: "User", value: "user" },
       ],
+      defaultValue: "user",
+      required: true,
     },
     {
       name: "name",
