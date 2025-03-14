@@ -1,11 +1,10 @@
-import { getServerSideUser } from "@/lib/actions/Users.action";
-import { cookies } from "next/headers";
 import { notFound, redirect } from "next/navigation";
 import { getPayloadClient } from "@/lib/payload";
 import { formatCurrency } from "@/lib/utils";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
+import { checkAuthStatus } from "@/lib/actions/Auth.action";
 
 interface PageProps {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -13,10 +12,9 @@ interface PageProps {
 
 export default async function ThankYouPage({ searchParams }: PageProps) {
   const param = await searchParams;
-  const cookie = await cookies();
   const orderId = param.orderId;
 
-  const { user } = await getServerSideUser(cookie);
+  const user = checkAuthStatus();
 
   if (!orderId) {
     return notFound();
