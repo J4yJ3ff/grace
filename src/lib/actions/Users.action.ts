@@ -5,6 +5,7 @@ import { getPayloadClient } from "../payload";
 import { NextRequest } from "next/server";
 import type { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
 import type { User } from "payload";
+import { cookies } from "next/headers";
 
 const AuthCredentialsValidator = z.object({
   email: z.string().email(),
@@ -40,6 +41,40 @@ export async function createUser(
     },
   });
   return { success: true, sentToEmail: email };
+}
+
+export async function signIn(data: z.infer<typeof AuthCredentialsValidator>) {
+  const { email, password } = AuthCredentialsValidator.parse(data);
+  const payload = await getPayloadClient();
+
+  try {
+    const res = await payload.login({
+      collection: "users",
+      data: {
+        email,
+        password,
+      },
+    });
+
+    const token = res.token;
+
+    // Set the authentication cookie
+    const cookieStore = await cookies();
+
+    if (token) {
+      cookieStore.set("payload-token", token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "strict",
+        path: "/",
+      });
+    }
+
+    return { success: true };
+  } catch (err) {
+    console.error("Sign-in error:", err);
+    return { success: false, error: "Invalid email or password" };
+  }
 }
 
 export async function verifyEmail(token: string) {
@@ -81,15 +116,15 @@ export const getServerSideUser = async (
 };
 
 export async function getUserOrders() {
+  const cookieStore = await cookies();
+  const { user } = await getServerSideUser(cookieStore);
   const payload = await getPayloadClient();
 
+  if (!user) {
+    return { success: false, error: "Not authenticated" };
+  }
+
   try {
-    const { user } = await payload.auth.getMe();
-
-    if (!user) {
-      return { success: false, error: "Not authenticated" };
-    }
-
     const { docs: orders } = await payload.find({
       collection: "orders",
       where: {

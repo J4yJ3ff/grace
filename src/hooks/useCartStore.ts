@@ -102,6 +102,11 @@ export const useCartStore = create<CartStore>()(
             }
       ),
       partialize: (state) => ({ items: state.items }),
+      onRehydrateStorage: () => (state) => {
+        if (state) {
+          state.total = calculateTotal(state.items);
+        }
+      },
     }
   )
 );
