@@ -54,8 +54,8 @@ export default function SignInPage() {
       } else {
         toast.error(result.error || "Failed to sign in");
       }
-    } catch (error: unknown) {
-      toast.error(`An unexpected error occurred: ${error}`);
+    } catch (error) {
+      toast.error("An unexpected error occurred");
     } finally {
       setIsLoading(false);
     }
@@ -65,6 +65,7 @@ export default function SignInPage() {
     <div className="container relative flex py-20 flex-col items-center justify-center lg:px-0">
       <div className="mx-auto flex w-full flex-col justify-center sm:w-[350px]">
         <div className="flex flex-col items-center space-y-2 text-center">
+          {/* <Icons.logo className="h-20 w-20" /> */}
           <h1 className="text-2xl font-semibold tracking-tight">
             Sign in to your account
           </h1>
